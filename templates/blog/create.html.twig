@@ -10,7 +10,10 @@
         {{form(formArticle)}}
         Mas é melhor assim porque assim podemos editar pelo meio.#}
     {{ form_start(formArticle) }}
-
+    {#
+        Existe outra forma de criar editar os erros
+        {{ form_error(formArticle.title)}}
+    #}
     {{ form_row(formArticle.title, {'attr': {'placeholder': "Titre de l'article"}}) }}
     {{ form_row(formArticle.content, {'attr': {'placeholder': "Contenue de l'article"}}) }}
     {{ form_row(formArticle.image, {'attr': {'placeholder': "URL de l'article"}}) }}
