@@ -29,7 +29,13 @@
         <label for="">Image</label>
         {{ form_widget(formArticle.image) }}
     </div>#}
-    <button type="submit" class="btn btn-success">Ajouter l'article</button>
+    <button type="submit" class="btn btn-success">
+        {% if editMode %}
+            Enregistrer les modifications
+        {% else %}
+            Ajouter l'article
+        {% endif %}
+    </button>
     {{ form_end(formArticle) }}
     {#1- isto mostra tudo{{ form(formArticle) }}#}
 
