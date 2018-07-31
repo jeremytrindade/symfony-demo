@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello {{ controller_name }}!{% endblock %}
+
+{% block body %}
+
+<section class="articles">
+    <article>
+        <h2>Titre de l'article</h2>
+        <div class="metada">Ecrit le 20/05/2018 à 19:00 dans la catégorie Politique</div>
+        <div class="content">
+            <img src="http://placehold.it/350x150" alt="">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea inventore qui molestiae iure quibusdam et?</p>
+            <p>Natus sequi excepturi odit eveniet! Molestias, eveniet. Aperiam non quaerat impedit laborum, voluptas reiciendis corporis.</p>
+            <a href="{{ path('blog_show') }}" class="btn btn-primary">Lire la suite</a>
+        </div>
+    </article>
+    <article>
+        <h2>Titre de l'article</h2>
+        <div class="metada">Ecrit le 20/05/2018 à 19:00 dans la catégorie Politique</div>
+        <div class="content">
+            <img src="http://placehold.it/350x150" alt="">
+            <p>Aspernatur nostrum nesciunt, suscipit voluptate nisi maxime et voluptatibus excepturi harum aut saepe, quas quae.</p>
+            <p>Placeat sequi magni fugiat inventore perferendis libero, officiis, laboriosam ab sed, nesciunt excepturi! Illo, placeat!</p>
+            <a href="{{ path('blog_show') }}" class="btn btn-primary">Lire la suite</a>
+        </div>
+    </article>
+    <article>
+        <h2>Titre de l'article</h2>
+        <div class="metada">Ecrit le 20/05/2018 à 19:00 dans la catégorie Politique</div>
+        <div class="content">
+            <img src="http://placehold.it/350x150" alt="">
+            <p>Asperiores corrupti alias, voluptatem dolorem placeat, consectetur obcaecati architecto doloribus suscipit tempora, sequi quaerat enim!</p>
+            <p>Eveniet odio iusto numquam facilis amet, sunt, exercitationem explicabo, inventore sit illum fugiat ut quam.</p>
+            <a href="{{ path('blog_show') }}" class="btn btn-primary">Lire la suite</a>
+        </div>
+    </article>
+</section>
+
+{% endblock %}
