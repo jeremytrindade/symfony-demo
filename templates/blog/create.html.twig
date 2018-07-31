@@ -1,9 +1,36 @@
 {% extends 'base.html.twig' %}
 
+{% form_theme formArticle 'bootstrap_4_layout.html.twig'%}
+
 {% block body %}
 
     <h1>Création d'un article !</h1>
 
-    {{ form(formArticle) }}
+    {#3- para reduzer a quantidade de codigo eu poderia apenas escrever
+        {{form(formArticle)}}
+        Mas é melhor assim porque assim podemos editar pelo meio.#}
+    {{ form_start(formArticle) }}
+
+    {{ form_row(formArticle.title, {'attr': {'placeholder': "Titre de l'article"}}) }}
+    {{ form_row(formArticle.content, {'attr': {'placeholder': "Co ntenue de l'article"}}) }}
+    {{ form_row(formArticle.image, {'attr': {'placeholder': "URL de l'article"}}) }}
+    {#4- SÉPARATION DU CODE: GARDEZ DE BONNES PRATIQUES
+        {{ form_widget(formArticle) }}
+    #}
+    {#2- Depois este para escolhermos um a um como queremos<div class="form-group">
+        <label for="">Titre</label>
+        {{ form_widget(formArticle.title) }}
+    </div>
+    <div class="form-group">
+        <label for="">Contenu</label>
+        {{ form_widget(formArticle.content) }}
+    </div>
+    <div class="form-group">
+        <label for="">Image</label>
+        {{ form_widget(formArticle.image) }}
+    </div>#}
+    <button type="submit" class="btn btn-success">Ajouter l'article</button>
+    {{ form_end(formArticle) }}
+    {#1- isto mostra tudo{{ form(formArticle) }}#}
 
 {% endblock %}

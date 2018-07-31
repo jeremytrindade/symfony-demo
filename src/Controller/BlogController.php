@@ -4,10 +4,15 @@ namespace App\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFondation\Request;
+use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
 use App\Entity\Article;
 use App\Repository\ArticleRepository;
+
 
 class BlogController extends Controller
 {
@@ -45,6 +50,25 @@ class BlogController extends Controller
         $article = new Article();
 
         $form = $this->createFormBuilder($article)
+                     /*->add('title', TextType::class,[
+                         'attr' => [
+                             'placeholder' => "Titre de l'article"/*,
+                             'class' => 'form-control'*//*
+                         ]
+                     ])
+                     ->add('content', TextareaType::class,[
+                         'attr' => [
+                             'placeholder' => "Contenu de l'article"
+                         ]
+                     ])
+                     ->add('image', TextType::class, [
+                         'attr' => [
+                             'placeholder' => "Image de l'article"
+                         ]
+                     ]) *//*
+                     ->add('save', SubmitType::class,[
+                         'label' => 'Enregister'
+                     ])*/
                      ->add('title')
                      ->add('content')
                      ->add('image')
