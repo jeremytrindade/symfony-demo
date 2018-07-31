@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use App\Entity\Article;
 
 class BlogController extends Controller
 {
@@ -12,8 +13,15 @@ class BlogController extends Controller
      */
     public function index()
     {
+        $repo = $this->getDoctrine()->getRepository(Article::class);
+        /*$article = $repo->find(12);
+        $article = $repo->findOneByTitle('Titre de l\'article');
+        $articles = $repo->findByTitle('Titre de l\'article');*/
+        $articles = $repo->findAll();
+
         return $this->render('blog/index.html.twig', [
             'controller_name' => 'BlogController',
+            'articles' => $articles
         ]);
     }
 
@@ -28,10 +36,14 @@ class BlogController extends Controller
     }
 
     /**
-     * @Route("/blog/12", name="blog_show")
+     * @Route("/blog/{id}", name="blog_show")
      */
-    public function show(){
-        return $this->render('blog/show.html.twig');
+    public function show($id){
+        $repo = $this->getDoctrine()->getRepository(Article::class);
+        $article = $repo->find($id);
+        return $this->render('blog/show.html.twig',[
+            'article' => $article
+        ]);
     }
 
 
