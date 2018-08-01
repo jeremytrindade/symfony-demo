@@ -43,15 +43,15 @@ class ArticlesFixtures extends Fixture
                     $content = '<p>' . join($faker->paragraphs(2), '</p><p>') . '</p>';
 
                     //$now = new \DateTime();
-                    $interval = (new \DateTime())->diff($article->getCreatedAt())->days;
+                    $days = (new \DateTime())->diff($article->getCreatedAt())->days;
                     //$days = $interval->days;
                     //$minimum = '-' . $days . 'days'; // - 100 days
 
-                    $comment->setAuthor(faker->name)
+                    $comment->setAuthor($faker->name)
                             ->setContent($content)
                             ->setCreatedAt($faker->dateTimeBetween('-' . $days . 'days'))
                             ->setArticle($article);
-        
+         
                     $manager->persist($comment);
     
                     
