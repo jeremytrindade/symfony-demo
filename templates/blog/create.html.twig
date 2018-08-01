@@ -15,6 +15,7 @@
         {{ form_error(formArticle.title)}}
     #}
     {{ form_row(formArticle.title, {'attr': {'placeholder': "Titre de l'article"}}) }}
+    {{ form_row(formArticle.category) }}
     {{ form_row(formArticle.content, {'attr': {'placeholder': "Contenue de l'article"}}) }}
     {{ form_row(formArticle.image, {'attr': {'placeholder': "URL de l'article"}}) }}
     {#4- SÉPARATION DU CODE: GARDEZ DE BONNES PRATIQUES
