@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert; 
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -28,8 +29,15 @@ class User
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Lenght(min"8", minMessage="Votre mot de passe doit faire minimum 8 caractères")
+     * @Assert\EqualTo(propertyPath="confirm_password")
      */
     private $password;
+
+     /**
+     * @Assert\EqualTo(propertyPath="confirm_password", message="Vous n'avez pas tapé le même mot de passe")
+     */
+    public $confirm_password;
 
     public function getId()
     {
