@@ -4,43 +4,53 @@
 
 {% block body %}
 
-    <h1>Création d'un article !</h1>
+    {% if not app.user %}
 
-    {#3- para reduzer a quantidade de codigo eu poderia apenas escrever
-        {{form(formArticle)}}
-        Mas é melhor assim porque assim podemos editar pelo meio.#}
-    {{ form_start(formArticle) }}
-    {#
-        Existe outra forma de criar editar os erros
-        {{ form_error(formArticle.title)}}
-    #}
-    {{ form_row(formArticle.title, {'attr': {'placeholder': "Titre de l'article"}}) }}
-    {{ form_row(formArticle.category) }}
-    {{ form_row(formArticle.content, {'attr': {'placeholder': "Contenue de l'article"}}) }}
-    {{ form_row(formArticle.image, {'attr': {'placeholder': "URL de l'article"}}) }}
-    {#4- SÉPARATION DU CODE: GARDEZ DE BONNES PRATIQUES
-        {{ form_widget(formArticle) }}
-    #}
-    {#2- Depois este para escolhermos um a um como queremos<div class="form-group">
-        <label for="">Titre</label>
-        {{ form_widget(formArticle.title) }}
-    </div>
-    <div class="form-group">
-        <label for="">Contenu</label>
-        {{ form_widget(formArticle.content) }}
-    </div>
-    <div class="form-group">
-        <label for="">Image</label>
-        {{ form_widget(formArticle.image) }}
-    </div>#}
-    <button type="submit" class="btn btn-success">
-        {% if editMode %}
-            Enregistrer les modifications
-        {% else %}
-            Ajouter l'article
-        {% endif %}
-    </button>
-    {{ form_end(formArticle) }}
-    {#1- isto mostra tudo{{ form(formArticle) }}#}
+    <h2>Vous ne pouvez pas créé ou éditer des articles si vous n'êtes pas connecté</h2>
+    <a href="{{ path('security_login') }}" class="btn btn-primary">Connexion</a>
+
+    {% else %}
+
+        <h1>Création d'un article !</h1>
+
+        {#3- para reduzer a quantidade de codigo eu poderia apenas escrever
+            {{form(formArticle)}}
+            Mas é melhor assim porque assim podemos editar pelo meio.#}
+        {{ form_start(formArticle) }}
+        {#
+            Existe outra forma de criar editar os erros
+            {{ form_error(formArticle.title)}}
+        #}
+        {{ form_row(formArticle.title, {'attr': {'placeholder': "Titre de l'article"}}) }}
+        {{ form_row(formArticle.category) }}
+        {{ form_row(formArticle.content, {'attr': {'placeholder': "Contenue de l'article"}}) }}
+        {{ form_row(formArticle.image, {'attr': {'placeholder': "URL de l'article"}}) }}
+        {#4- SÉPARATION DU CODE: GARDEZ DE BONNES PRATIQUES
+            {{ form_widget(formArticle) }}
+        #}
+        {#2- Depois este para escolhermos um a um como queremos<div class="form-group">
+            <label for="">Titre</label>
+            {{ form_widget(formArticle.title) }}
+        </div>
+        <div class="form-group">
+            <label for="">Contenu</label>
+            {{ form_widget(formArticle.content) }}
+        </div>
+        <div class="form-group">
+            <label for="">Image</label>
+            {{ form_widget(formArticle.image) }}
+        </div>#}
+        <button type="submit" class="btn btn-success">
+            {% if editMode %}
+                Enregistrer les modifications
+            {% else %}
+                Ajouter l'article
+            {% endif %}
+        </button>
+        {{ form_end(formArticle) }}
+        {#1- isto mostra tudo{{ form(formArticle) }}#}
+    {% endif %}
+
+    
 
 {% endblock %}

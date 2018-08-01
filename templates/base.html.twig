@@ -18,10 +18,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{path('blog')}}">Articles </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{path('blog_create')}}">Créer un article</a>
-                    </li>
-
                     {% if not app.user %}
                         
                     
@@ -29,6 +25,9 @@
                         <a class="nav-link" href="{{path('security_login')}}">Connexion</a>
                     </li>
                     {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{path('blog_create')}}">Créer un article</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{path('security_logout')}}">Déconnexion</a>
                     </li>
